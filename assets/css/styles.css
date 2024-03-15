@@ -1,0 +1,227 @@
+/* General and Reset Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #5D3F6A 0%, #3C1053 100%);
+    color: #E0E0E0;
+    height: 100%;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navbar Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    padding: 0 20px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #E0E0E0;
+}
+
+nav ul, .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li, .nav-links li {
+    margin: 0 10px;
+}
+
+nav ul li a, .nav-links li a {
+    color: #E0E0E0;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a:focus, .nav-links li a:hover, .nav-links li a:focus {
+    color: #5D3F6A;
+    background-color: #E0E0E0;
+    border-radius: 5px;
+}
+
+body {
+    padding-top: 60px;
+}
+
+/* Section Styles */
+section {
+    box-sizing: border-box; /* Includes padding in the element's total width and height */
+    padding: 20px;
+    margin: 20px auto; /* Centers the section with automatic margins */
+    max-width: calc(100% - 40px); /* Adjusts max-width to account for padding and prevents overflow */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+}
+
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* This will space out the items evenly */
+    gap: 20px; /* Adjust the gap as needed */
+    margin: 0 auto; /* Keep the container centered */
+    max-width: 1200px; /* Adjust according to your preference for the container's max width */
+    width: 100%; /* Ensure the container takes up the full available width */
+}
+
+
+
+.portfolio-card {
+    overflow: hidden;
+    margin: 20px;
+    flex: 1 1 calc(50% - 20px);
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Ensure content flows vertically */
+    background-color: #2C2C2C;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    padding: 20px;
+    cursor: pointer;
+    background-color: #2C2C2C;
+    color: #E0E0E0;
+}
+
+.card-content:hover {
+    background-color: #383838;
+}
+
+.expandable-content {
+    background-color: #2C2C2C; /* Adjusted to match the card-content for a seamless look */
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    max-height: 0; /* Start collapsed */
+    overflow: hidden;
+    color: #FFF; /* Ensuring readability */
+    padding: 0 20px; /* Padding transition for a smoother expansion */
+}
+
+
+.portfolio-card.expanded .expandable-content {
+    max-height: 500px; /* Adjust as needed for content */
+    padding: 20px; /* Padding added upon expansion for content spacing */
+}
+
+
+.expandable-content ul {
+    list-style: inside;
+    padding: 0 0 10px 0;
+}
+
+.expandable-content ul li {
+    padding: 5px 0;
+}
+
+.expandable-content h4 {
+    color: #E0E0E0;
+    margin-top: 15px;
+}
+
+
+/* Footer Styles */
+footer {
+    background: #1C1C1E;
+    color: #E0E0E0;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Utility Classes and Elements Styles */
+a {
+    color: #B794F4;
+}
+
+a:hover {
+    color: #D8BFD8;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: #E0E0E0; /* Ensuring headers are also light for contrast */
+}
+
+/* Responsive Styles for Navbar */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.85); /* Consistent with the navbar */
+        padding-top: 20px; /* Added some padding for the menu items */
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+        margin: 10px 0; /* Give a little more space between links */
+    }
+
+    .nav-links li a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        color: #E0E0E0; /* Ensure text color consistency */
+        text-decoration: none; /* Remove underline */
+    }
+
+    .nav-links li a:hover, .nav-links li a:focus {
+        background-color: #5D3F6A; /* Purple background for hovered/focused links */
+        color: #E0E0E0;
+        border-radius: 0; /* Optional: removes border radius for a full-width effect */
+    }
+
+    .show {
+        display: flex;
+    }
+
+    .portfolio-card {
+    position: relative; /* Ensure proper stacking context */
+    overflow: hidden; /* Prevents overflow from visually affecting outside */
+    margin-bottom: 2rem;
+    width: 300px;
+    transition: margin-bottom 0.3s ease;
+    background-color: #FFF; /* or any preferred background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+    section {
+        margin: 20px;
+        width: 90%; /* Allow sections to breathe on smaller screens */
+    }
+.portfolio-card.expanded .expandable-content {
+        max-height: none; /* Adjusting to allow the content to expand freely */
+        padding: 20px; /* Padding added upon expansion for content spacing */
+        transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Adding back the transition */
+    }
+}
